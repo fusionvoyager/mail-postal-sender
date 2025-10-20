@@ -72,6 +72,10 @@ class PostalEmailSender:
             payload["from_name"] = from_name
             
         try:
+            # Debug: HTML içeriğini logla
+            logger.info(f"HTML içeriği uzunluğu: {len(html_content)} karakter")
+            logger.info(f"HTML içeriği başlangıcı: {html_content[:100]}...")
+            
             response = self.session.post(url, json=payload, timeout=30)
             response.raise_for_status()
             return response.json()
