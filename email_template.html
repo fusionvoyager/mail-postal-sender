@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özel Teklif</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header { 
+            background: linear-gradient(135deg, #007bff, #0056b3); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .content { 
+            padding: 30px 20px; 
+            background: #f9f9f9; 
+        }
+        .content h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .footer { 
+            background: #333; 
+            color: white; 
+            padding: 20px; 
+            text-align: center; 
+            font-size: 12px; 
+            border-radius: 0 0 10px 10px;
+        }
+        .button { 
+            background: linear-gradient(135deg, #28a745, #20c997); 
+            color: white; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            display: inline-block; 
+            margin: 20px 0; 
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            margin: 0 10px;
+        }
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Özel Teklif</h1>
+            <p>Sınırlı Süre Fırsatı!</p>
+        </div>
+        
+        <div class="content">
+            <h2>Merhaba {{name}}!</h2>
+            
+            <p>Size özel bir teklifimiz var. Bu fırsatı kaçırmayın!</p>
+            
+            <div class="highlight">
+                <strong>🔥 Özel İndirim:</strong> İlk siparişinizde %50 indirim!
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Hızlı Teslimat</h3>
+                    <p>24 saat içinde</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Kalite</h3>
+                    <p>En iyi ürünler</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Güvenli Alışveriş</h3>
+                    <p>SSL koruması</p>
+                </div>
+            </div>
+            
+            <p>Detaylar için aşağıdaki butona tıklayın:</p>
+            <a href="https://baseprise.com" class="button">Teklifi Görüntüle</a>
+            
+            <p>Bu teklif sadece sizin için geçerli ve sınırlı süreli!</p>
+            
+            <p>Teşekkürler,<br><strong>Baseprise Ekibi</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>Bu e-posta {{email}} adresine gönderilmiştir.</p>
+            <p>© 2024 Baseprise. Tüm hakları saklıdır.</p>
+            <p><a href="#" style="color: #ccc;">Abonelikten çıkmak için tıklayın</a></p>
+        </div>
+    </div>
+</body>
+</html>
