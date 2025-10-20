@@ -14,7 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Uygulama dosyalarını kopyala
 COPY postal_sender.py .
-COPY config.py .
 
 # Çalıştırılabilir yap
 RUN chmod +x postal_sender.py
