@@ -3,138 +3,522 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özel Teklif</title>
+    <title>Baseprise - İşinizi Kontrol Altına Alın</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f4f4f4;
-        }
-        .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .header { 
-            background: linear-gradient(135deg, #007bff, #0056b3); 
-            color: white; 
-            padding: 30px 20px; 
-            text-align: center; 
-            border-radius: 10px 10px 0 0;
-        }
-        .header h1 {
+        /* Base Styles */
+        * {
             margin: 0;
-            font-size: 28px;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .content { 
-            padding: 30px 20px; 
-            background: #f9f9f9; 
+
+        body {
+            font-family: "Outfit", Arial, sans-serif;
+            background-color: #090b0b;
+            color: #fafafa;
+            line-height: 1.6;
         }
-        .content h2 {
-            color: #007bff;
-            margin-top: 0;
+
+        .email-container {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #0c0c0e;
+            border-radius: 8px;
+            overflow: hidden;
         }
-        .footer { 
-            background: #333; 
-            color: white; 
-            padding: 20px; 
-            text-align: center; 
-            font-size: 12px; 
-            border-radius: 0 0 10px 10px;
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, #fafafa 0%, #e3e3e3 100%);
+            padding: 40px;
+            text-align: center;
+            position: relative;
         }
-        .button { 
-            background: linear-gradient(135deg, #28a745, #20c997); 
-            color: white; 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            border-radius: 25px; 
-            display: inline-block; 
-            margin: 20px 0; 
-            font-weight: bold;
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(180deg, #0c0c0e 10%, #09090b 80%);
+            border-radius: 6px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 1);
+        }
+
+        .logo img {
+            width: 12.71px;
+            height: 21.33px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #9333ea 20%, #0a2f7b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            text-shadow: 0px 1px 1px #000000;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #0c0c0e;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 40px;
+            background-color: #0c0c0e;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #fafafa;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #9333ea;
+            border-radius: 1px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: #fafafa;
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: flex;
+            gap: 47px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            flex: 1;
+            padding: 16px;
+            border-radius: 6px;
+            border: 1px solid #171717;
+            background: linear-gradient(180deg, #0c0c0e 10%, #09090b 80%);
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: 16px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #fafafa;
+        }
+
+        /* Features List */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #9333ea;
+            border-radius: 2px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: #0c0c0e;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(180deg, #6b21a8 0%, #9333ea 100%);
+            color: #fafafa;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: inset 0px -1.24px 0px #000000bf, inset 0px 0.62px 1.11px #00000040, 0px 0px 5px #9333ea26, 0px 5px 15px #9333ea40;
             transition: transform 0.3s ease;
         }
-        .button:hover {
+
+        .cta-button:hover {
             transform: translateY(-2px);
         }
-        .highlight {
-            background: #fff3cd;
-            padding: 15px;
-            border-left: 4px solid #ffc107;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .features {
+
+        /* Benefits Section */
+        .benefits-grid {
             display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
+            flex-direction: column;
+            gap: 12px;
         }
-        .feature {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: linear-gradient(180deg, #0c0c0e 10%, #09090b 80%);
+            border-radius: 4px;
+            border: 1px solid #171717;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 1);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(180deg, #0c0c0e 10%, #09090b 80%);
+            border-radius: 4px;
+            border: 1px solid #171717;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-content {
             flex: 1;
-            margin: 0 10px;
         }
-        .feature-icon {
-            font-size: 24px;
-            margin-bottom: 10px;
+
+        .benefit-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #9333ea;
+            margin-bottom: 4px;
+        }
+
+        .benefit-description {
+            font-size: 14px;
+            color: #fafafa;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(180deg, #0c0c0e 10%, #09090b 80%);
+            border: 1px solid #171717;
+            border-radius: 6px;
+            padding: 40px 24px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 1);
+        }
+
+        .quote-text {
+            font-size: 20px;
+            color: #fafafa;
+            margin-bottom: 24px;
+        }
+
+        .quote-highlight {
+            color: #9333ea;
+            font-weight: 500;
+        }
+
+        /* References Section */
+        .references-grid {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 24px 0;
+            flex-wrap: wrap;
+        }
+
+        .reference-logo {
+            height: 28px;
+            object-fit: cover;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: #fafafa;
+            border: 1px solid #b0b0b0;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: #0c0c0e;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #0c0c0e;
+        }
+
+        .author-title {
+            font-size: 12px;
+            color: #2a2a2a;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #fafafa 0%, #e3e3e3 100%);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(180deg, #0c0c0e 10%, #09090b 80%);
+            border-radius: 6px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 1);
+        }
+
+        .footer-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #9333ea;
+            margin-bottom: 40px;
+        }
+
+        .footer-cta {
+            margin-bottom: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #fafafa;
+        }
+
+        .copyright-highlight {
+            color: #9333ea;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .stats-grid {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .references-grid {
+                justify-content: center;
+            }
+        }
+
+        /* Personalization */
+        .personalized-name {
+            color: #9333ea;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="email-container">
+        <!-- Header -->
         <div class="header">
-            <h1>🎉 Özel Teklif</h1>
-            <p>Sınırlı Süre Fırsatı!</p>
-        </div>
-        
-        <div class="content">
-            <h2>Merhaba {{name}}!</h2>
-            
-            <p>Size özel bir teklifimiz var. Bu fırsatı kaçırmayın!</p>
-            
-            <div class="highlight">
-                <strong>🔥 Özel İndirim:</strong> İlk siparişinizde %50 indirim!
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAxMyAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuNSAwTDEyIDUuNUg5VjE1SDlWNS41SDYuNVoiIGZpbGw9IiNGRkZGRkYiLz4KPC9zdmc+" alt="Baseprise Logo">
             </div>
+            <h1 class="hero-title">İşinizi Kontrol Altına Alın</h1>
+            <p class="hero-subtitle">Merhaba {{name}}! Baseprise ile işletmenizi bir üst seviyeye taşıyın. Ölçeklenebilir yapısı ve yüksek işlem doğruluğu ile güvenle büyümenizi sağlar.</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-section">
+            <!-- Stats Section -->
+            <div class="section-title">Veriler</div>
+            <p class="section-description">Baseprise, ölçeklenebilir yapısı ve yüksek işlem doğruluğu ile işletmelerin güvenle büyümesini sağlar.</p>
             
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Hızlı Teslimat</h3>
-                    <p>24 saat içinde</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$120M+</div>
+                    <div class="stat-label">Kontrol Edilen Gelir</div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">💎</div>
-                    <h3>Premium Kalite</h3>
-                    <p>En iyi ürünler</p>
+                <div class="stat-card">
+                    <div class="stat-number">99.99%</div>
+                    <div class="stat-label">Hatasız İşlem Kaydı</div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Güvenli Alışveriş</h3>
-                    <p>SSL koruması</p>
+                <div class="stat-card">
+                    <div class="stat-number">2.5B</div>
+                    <div class="stat-label">Kullanıcı Sayısı</div>
                 </div>
             </div>
+
+            <!-- Benefits Section -->
+            <div class="section-title">Kazanımlar</div>
+            <p class="section-description">Baseprise'ın İşletmenizine Sunduğu Temel Avantajlar:</p>
             
-            <p>Detaylar için aşağıdaki butona tıklayın:</p>
-            <a href="https://baseprise.com" class="button">Teklifi Görüntüle</a>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Bütçe Dostu:</div>
+                        <div class="benefit-description">"ERP sadece büyük firmalar içindir" algısını yıkıyoruz. Aylık uygun ödeme planlarımızla, her ölçekten işletme profesyonel bir altyapıya sahip olabilir.</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Kullanım Kolaylığı:</div>
+                        <div class="benefit-description">Teknik bilgiye gerek kalmadan ekibiniz dakikalar içinde kolayca adapte olur. Baseprise'ın kolay ve sezgisel arayüzü, sizi karmaşık menülerde kaybetmez.</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">☁️</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Bulut Tabanlı Erişim:</div>
+                        <div class="benefit-description">Ofiste, sahada veya evde fark etmez, tüm verileriniz güvenle bulutta saklanır ve mobil uyumlu arayüzümüz sayesinde her an ulaşılabilir.</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔗</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Entegrasyon Güvencesi:</div>
+                        <div class="benefit-description">Mevcut muhasebe yazılımlarınız (Logo, Zirve vb.) Baseprise'a otomatik olarak bağlanır ve mükerrer veri girişine gerek kalmaz.</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Gerçek Zamanlı Görünürlük:</div>
+                        <div class="benefit-description">Stoktan projelere, satıştan personel takibine kadar tüm süreçleriniz tek panelde. Artık nerede ne kadar malzeme var, hangi görev gecikti, anında biliyorsunuz.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <div class="quote-section">
+                <p class="quote-text">
+                    "İhtiyacınız kadar kullanın, siz büyüdükçe <span class="quote-highlight">Baseprise</span> da sizinle beraber büyür."
+                </p>
+                <a href="https://baseprise.com" class="cta-button">
+                    Hemen Başlayın
+                    <span>→</span>
+                </a>
+            </div>
+
+            <!-- References Section -->
+            <div class="section-title">Referanslar</div>
+            <p class="section-description">Farklı sektörlerden lider markalar Baseprise ile verimliliğini artırmaya devam ediyor.</p>
             
-            <p>Bu teklif sadece sizin için geçerli ve sınırlı süreli!</p>
+            <div class="references-grid">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCA3MiAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcyIiBoZWlnaHQ9IjI4IiBmaWxsPSIjRkZGRkZGIi8+Cjx0ZXh0IHg9IjM2IiB5PSIxOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5UaGluZ3M8L3RleHQ+Cjwvc3ZnPg==" alt="Things" class="reference-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA5IiBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMTA5IDI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTA5IiBoZWlnaHQ9IjI4IiBmaWxsPSIjRkZGRkZGIi8+Cjx0ZXh0IHg9IjU0LjUiIHk9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkF0ZyBQcm9qZWN0PC90ZXh0Pgo8L3N2Zz4=" alt="ATG Project" class="reference-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAxIiBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMTAxIDI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAxIiBoZWlnaHQ9IjI4IiBmaWxsPSIjRkZGRkZGIi8+Cjx0ZXh0IHg9IjUwLjUiIHk9IjE4IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFkYW5hIE3DvGt1bTwvdGV4dD4KPC9zdmc+" alt="Adana Döküm" class="reference-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA4IiBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMTA4IDI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTA4IiBoZWlnaHQ9IjI4IiBmaWxsPSIjRkZGRkZGIi8+Cjx0ZXh0IHg9IjU0IiB5PSIxOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TdG9uZSBBY2Nlc3M8L3RleHQ+Cjwvc3ZnPg==" alt="Stone Access" class="reference-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA0IiBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgMTA0IDI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTA0IiBoZWlnaHQ9IjI4IiBmaWxsPSIjRkZGRkZGIi8+Cjx0ZXh0IHg9IjUyIiB5PSIxOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BbG1lc2EgR8SxZGE8L3RleHQ+Cjwvc3ZnPg==" alt="Almesa Gıda" class="reference-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCA2MCAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjI4IiBmaWxsPSIjRkZGRkZGIi8+Cjx0ZXh0IHg9IjMwIiB5PSIxOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DZXJlYnJ1bTwvdGV4dD4KPC9zdmc+" alt="Cerebrum Tech" class="reference-logo">
+            </div>
+
+            <!-- Testimonial Section -->
+            <div class="section-title">Kullanıcılarımız Ne Diyor?</div>
+            <p class="section-description">İş süreçlerinizi daha akıllı, hızlı ve izlenebilir hale getirin. Her adımı anlık olarak ölçümleyin ve kararlarınızı güvenle alın.</p>
             
-            <p>Teşekkürler,<br><strong>Baseprise Ekibi</strong></p>
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    <span class="personalized-name">Baseprise</span>'ı kullanmaya başladıktan sonra operasyonlarımız daha verimli, hatasız ve ölçülebilir hale geldi. Artık envanter, satış ve müşteri yönetimi süreçlerini tek panel üzerinden kontrol edebiliyoruz. Bu dönüşüm bize yalnızca zaman kazandırmadı, aynı zamanda müşterilerimize daha hızlı ve tutarlı hizmet verebilmemizi sağladı.
+                </p>
+                <div class="testimonial-author">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMTQiIGZpbGw9IiM5MzMzZWEiLz4KPHN2ZyB4PSI3IiB5PSI3IiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik03IDdMMTAgMTBMMTQgNk0xMCAxMEg3VjciIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cjwvc3ZnPg==" alt="Adil Yükselen" class="author-avatar">
+                    <div class="author-info">
+                        <div class="author-name">Adil Yükselen</div>
+                        <div class="author-title">CEO of Stone Access Inc.</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+
+        <!-- Footer -->
         <div class="footer">
-            <p>Bu e-posta {{email}} adresine gönderilmiştir.</p>
-            <p>© 2024 Baseprise. Tüm hakları saklıdır.</p>
-            <p><a href="#" style="color: #ccc;">Abonelikten çıkmak için tıklayın</a></p>
+            <div class="footer-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAxOSAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTkuNSAwTDE5IDkuNUgxM1YyMkgxM1Y5LjVIOU41WiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4=" alt="Baseprise Logo">
+            </div>
+            <h2 class="footer-title">"İşinizi Kontrol Altına Alın"</h2>
+            <div class="footer-cta">
+                <a href="https://baseprise.com" class="cta-button">
+                    Kullanmaya Başlayın
+                    <span>→</span>
+                </a>
+            </div>
+            <div class="social-links">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDBDNC40NzcgMCAwIDQuNDc3IDAgMTBTNC40NzcgMjAgMTAgMjBTMjAgMTUuNTIzIDIwIDEwUzE1LjUyMyAwIDEwIDBaIiBmaWxsPSIjOTMzM2VhIi8+CjxwYXRoIGQ9Ik0xMCA1QzcuMjM5IDUgNSA3LjIzOSA1IDEwUzcuMjM5IDE1IDEwIDE1UzE1IDEyLjc2MSAxNSAxMFMxMi43NjEgNSAxMCA1WiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4=" alt="Social" class="social-icon">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDBDNC40NzcgMCAwIDQuNDc3IDAgMTBTNC40NzcgMjAgMTAgMjBTMjAgMTUuNTIzIDIwIDEwUzE1LjUyMyAwIDEwIDBaIiBmaWxsPSIjOTMzM2VhIi8+CjxwYXRoIGQ9Ik0xMCA1QzcuMjM5IDUgNSA3LjIzOSA1IDEwUzcuMjM5IDE1IDEwIDE1UzE1IDEyLjc2MSAxNSAxMFMxMi43NjEgNSAxMCA1WiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4=" alt="Social" class="social-icon">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDBDNC40NzcgMCAwIDQuNDc3IDAgMTBTNC40NzcgMjAgMTAgMjBTMjAgMTUuNTIzIDIwIDEwUzE1LjUyMyAwIDEwIDBaIiBmaWxsPSIjOTMzM2VhIi8+CjxwYXRoIGQ9Ik0xMCA1QzcuMjM5IDUgNSA3LjIzOSA1IDEwUzcuMjM5IDE1IDEwIDE1UzE1IDEyLjc2MSAxNSAxMFMxMi43NjEgNSAxMCA1WiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4=" alt="Social" class="social-icon">
+            </div>
+            <p class="copyright">
+                <span>© 2025 </span>
+                <span class="copyright-highlight">Baseprise</span>
+                <span>, Tüm Hakları Saklıdır.</span>
+            </p>
         </div>
     </div>
 </body>
