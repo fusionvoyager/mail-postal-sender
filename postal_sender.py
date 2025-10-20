@@ -61,10 +61,12 @@ class PostalEmailSender:
         url = f"{self.server_url}/org/baseprise/servers/baseprise/messages"
         
         payload = {
+            "authenticity_token": "dummy_token",
             "message[to]": to_email,
             "message[from]": from_email,
             "message[subject]": subject,
-            "message[plain_body]": self._html_to_text(html_content)
+            "message[plain_body]": self._html_to_text(html_content),
+            "commit": "Send Message"
         }
         
         if from_name:
