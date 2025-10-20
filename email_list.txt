@@ -1,5 +1,1 @@
-test1@example.com
-test2@example.com
-test3@example.com
-test4@example.com
-test5@example.com
+test-x7bjcin8w@srv1.mail-tester.com
