@@ -40,7 +40,7 @@ class PostalEmailSender:
         self.session = requests.Session()
         self.session.headers.update({
             'X-Server-API-Key': api_key,
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            'Content-Type': 'application/json'
         })
         
     def send_email(self, to_email: str, subject: str, html_content: str, 
@@ -58,22 +58,21 @@ class PostalEmailSender:
         Returns:
             API yanıtı
         """
-        url = f"{self.server_url}/org/baseprise/servers/baseprise/messages"
+        url = f"{self.server_url}/api/v1/send/message"
         
         payload = {
-            "authenticity_token": "dummy_token",
-            "message[to]": to_email,
-            "message[from]": from_email,
-            "message[subject]": subject,
-            "message[plain_body]": self._html_to_text(html_content),
-            "commit": "Send Message"
+            "to": [to_email],
+            "from": from_email,
+            "subject": subject,
+            "html_body": html_content,
+            "plain_body": self._html_to_text(html_content)
         }
         
         if from_name:
-            payload["message[from_name]"] = from_name
+            payload["from_name"] = from_name
             
         try:
-            response = self.session.post(url, data=payload, timeout=30)
+            response = self.session.post(url, json=payload, timeout=30)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
